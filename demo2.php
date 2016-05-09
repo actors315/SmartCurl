@@ -10,7 +10,7 @@ $multi -> set_gzip(true);
 $url = "https://www.zhihu.com/people/fenng";
 $multi -> get($url);
 //request2
-$url = "https://www.zhihu.com/people/fenng/about";
-$multi -> get($url);
+//$url = "https://www.zhihu.com/people/fenng/about";
+//$multi -> get($url);
 $result = $multi -> execute();
 print_r($result);
