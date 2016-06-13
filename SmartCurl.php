@@ -111,7 +111,7 @@ class SmartCurl {
     public function set_cookiefile($cookiefile) {
         $this -> options[CURLOPT_COOKIEFILE] = $cookiefile;
         //在访问其他页面时拿着这个cookie文件去访问
-        $this -> options[CURLOPT_COOKIEJAR] = $cookiejar;
+        $this -> options[CURLOPT_COOKIEJAR] = $cookiefile;
         //连接时把获得的cookie存为文件
     }
 
