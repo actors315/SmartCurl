@@ -1,0 +1,13 @@
+{
+  "name": "lingyin/curl",
+  "description": "curl封装",
+  "require": {
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "lingyin\\curl\\": "src/"
+    }
+  }
+}
