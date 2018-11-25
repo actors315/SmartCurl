@@ -95,7 +95,7 @@ class MultiCurl
                 if ($this->requests[$map[(string)$done['handle']]]->callback) {
                     $callback = $this->requests[$map[(string)$done['handle']]]->callback;
                     $request = $this->requests[$map[(string)$done['handle']]]->request;
-                    call_user_func($callback, $backData['data'], $backData['info'], $request, $backData['logInfo']);
+                    call_user_func($callback, $backData['data'], $backData, $request);
                 }
                 $responses[$map[(string)$done['handle']]] = $backData;
 

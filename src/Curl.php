@@ -90,11 +90,14 @@ class Curl
      *
      * @param callable $callback
      * @return $this
+     * @throws \Exception
      */
     public function setCallback($callback)
     {
         if (is_callable($callback)) {
             $this->callback = $callback;
+        } else {
+            throw new \Exception('回调方法无法执行');
         }
         return $this;
     }
@@ -140,7 +143,7 @@ class Curl
             ];
         }
         if ($this->callback) {
-            call_user_func($this->callback, $backData['data'], $backData['info'], $this->request, $this->$backData['logInfo']);
+            call_user_func($this->callback, $backData['data'], $backData, $this->request);
         }
         curl_close($this->request);
         return $backData;
@@ -180,6 +183,13 @@ class Curl
                 break;
             default :
                 curl_setopt($this->request, CURLOPT_CUSTOMREQUEST, $method);
+        }
+    }
+
+    public function __get($name)
+    {
+        if (in_array($name, ['request', 'callback'])) {
+            return $this->{$name};
         }
     }
 
